@@ -1,31 +1,26 @@
 <%= link_to "投稿画面へ", new_user_path %>
-<% @users.each do |user| %>
-  <p>
-      <%= user.name %>
-      <%= user.age %>
-      <%= link_to '詳細', user_path(user.id) %>
-      <%= link_to '編集', edit_user_path(user.id), method: :get %>
-      <%= link_to '削除', user_path(user.id), method: :delete, data: {confirm: "削除しますか？"} %>
-  </p>
-<% end %>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Jacob</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Larry</td>
-      <td>33</td>
-    </tr>
-  </tbody>
-</table>
+    <table class="table">
+      <!-- ヘッダー色の変更 -->
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">名前</th>
+          <th scope="col">年齢</th>
+          <th scope="col">変更</th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @users.each.with_index(1) do |user, i| %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= user.name %></td>
+          <td><%= user.age %></td>
+          <td>
+            <%= link_to '詳細', user_path(user.id) %>
+            <%= link_to '編集', edit_user_path(user.id), method: :get %>
+            <%= link_to '削除', user_path(user.id), method: :delete, data: {confirm: "削除しますか？"} %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>

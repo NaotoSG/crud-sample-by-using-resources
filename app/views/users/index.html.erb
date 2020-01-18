@@ -8,3 +8,24 @@
       <%= link_to '削除', user_path(user.id), method: :delete, data: {confirm: "削除しますか？"} %>
   </p>
 <% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Jacob</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Larry</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
